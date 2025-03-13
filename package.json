@@ -2,8 +2,10 @@
   "name": "frontend",
   "version": "0.1.0",
   "scripts": {
-    "start": "vite",
+    "dev": "vite preview",
     "build": "vite build",
+    "start": "serve -s dist",
+    "postinstall": "npm run build",
     "test": "vite test",
     "eject": "vite eject"
   },
@@ -29,6 +31,7 @@
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.3.0",
+    "serve": "^14.2.4",
     "vite": "^6.2.1"
   }
 }

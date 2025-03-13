@@ -69,6 +69,7 @@ export default function Incident(){
                 <input 
                     placeholder="Valor em reais"
                     value={value}
+                    type="number"
                     onChange={e => setValue(e.target.value)}
                 />               
 

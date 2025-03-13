@@ -7,5 +7,9 @@ export default defineConfig({
     open: true,
     // port: 3000, // Set the port to 3000
     // host: 'localhost', // Explicitly set the host
+    watch: {
+      usePolling: true, // Forces file watching for changes
+    },
+    hmr: true, // Ensures hot module replacement is enabled
   },
 });

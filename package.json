@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "scripts": {
-    "dev": "vite preview",
+    "dev": "vite",
     "build": "vite build",
     "start": "serve -s dist",
     "postinstall": "npm run build",

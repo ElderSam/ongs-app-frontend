@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
 import api from '../../services/api';
@@ -14,7 +14,7 @@ export default function Register(){
     const [city, setCity] = useState('');
     const [uf, setUf] = useState('');
 
-    const history = useHistory(); //para redirecionar para outra página
+    const navigate = useNavigate(); //para redirecionar para outra página
 
     async function handleRegister(e){ //cadastro do usuário
         e.preventDefault(); //impede a página regarregar ao enviar o Formulário
@@ -30,13 +30,12 @@ export default function Register(){
         try{   
             //chama a API para cadastro
             const response = await api.post('ongs', data);
-            
-            alert(`Seu ID de acesso: ${response.data.id}`);
+            alert(`Seu ID de acesso: ${response.data.id} (salve isso para Login)`);
 
-            history.push('/'); //redireciona para página de Login
+            navigate('/'); //redireciona para página de Login
         
         }catch(err){
-            alert('Erro no cadastro, tente novamente!');
+            alert('Erro no cadastro, tente novamente! ' + err.response.data.validation.body.message);
         }
     }
 

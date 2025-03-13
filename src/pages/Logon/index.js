@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Link, useHistory } from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
 import {FiLogIn} from 'react-icons/fi';
 
 import api from '../../services/api';
@@ -12,7 +12,7 @@ import heroesImg from '../../assets/heroes.png';
 export default function Logon(){
 
     const [id, setId] = useState('');
-    const history = useHistory();
+    const navigate = useNavigate();
 
     async function handleLogin(e){
         e.preventDefault(); //evita a página recarregar
@@ -24,10 +24,11 @@ export default function Logon(){
             localStorage.setItem('ongId', id);
             localStorage.setItem('ongName', response.data.name);
           
-            history.push('/profile'); //redireciona para a página profile
+            navigate('/profile'); //redireciona para a página profile
 
         }catch(err){
-            alert('Falha no login, tente novamente');
+            console.log(err)
+            alert('Falha no login, tente novamente. ' + err.response.data.error);
         }
     }
 

@@ -2,11 +2,11 @@ import React from 'react';
 
 import './global.css';
 
-import Routes from './routes'; //importa o index
+import MyRoutes from './routes'; //importa o index
 
 function App() {
   return (
-    <Routes />
+    <MyRoutes />
   );
 }
 
